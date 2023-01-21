@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+
+import Source from './source.docs.mdx';
+
+<Meta
+    title="Design Tokens/Hook"
+    parameters={{
+        backgrounds: {
+            disable: true,
+            grid: {
+                disable: true
+            }
+        },
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: {
+                hidden: true
+            }
+        }
+    }}
+/>
+
+## Design Tokens
+Предоставляет набор дизайн токенов в виде CSS переменных. Все предоставляемые переменные ограничены областью использования компонента или хука.
+
+Содержит параметры: цветовая палитра, типографика, скругления, тени.
+
+## Использование
+Импорт хука в код.
+```tsx
+import { useDesignTokens } from '@kritua/ui-react';
+```
+
+Хук возвращает объект с атрибутами для использования.
+```tsx
+import React from 'react';
+import { render } from 'react-dom';
+
+import { useDesignTokens } from '@kritua/ui-react';
+
+const App = () => {
+    const attrs = useDesignTokens();
+
+    return (
+        <div {...attrs}>
+            <YourAppCode />
+        </div>
+    );
+}
+
+render(<App />, document.getElementById('root'));
+```
+
+<Source />
